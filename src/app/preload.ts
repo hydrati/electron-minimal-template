@@ -1,3 +1,7 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 
-contextBridge.exposeInMainWorld('api', {})
+contextBridge.exposeInMainWorld('app', {
+  showDialog(message) {
+    return ipcRenderer.invoke('show-dialog', message)
+  },
+} satisfies App.Remote)
