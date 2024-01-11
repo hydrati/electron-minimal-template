@@ -3,7 +3,7 @@ import { electron } from './scripts/vite-plugin'
 
 export default defineConfig({
   plugins: [electron()],
-  esbuild: {
+  build: {
     target: ['esnext'],
   },
 })
